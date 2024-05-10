@@ -11,7 +11,7 @@ header{
     top: 0;
     left: 0;
     width: 100%;
-    padding: 20px 100px;
+    padding: 10px 100px;
     background-color:rgb(53, 51, 61);
     display: flex;
     justify-content: space-between;
@@ -66,7 +66,7 @@ body{
     transform-origin: left;
 }
 
-.navigation .btnPlay-popUp {
+.navigation .btnLogin-popup {
     width: 130px;
     height: 50px;
     background: transparent;
@@ -81,7 +81,7 @@ body{
     transition: 0.5s;
 }
 
-.navigation .btnPlay-popUp:hover {
+.navigation .btnLogin-popup:hover {
     background-color: white;
     color: #162938;
     
@@ -100,6 +100,17 @@ body{
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    transform: scale(0);
+    transition: transform .5s ease, height .2s ease;
+}
+
+.wrapper.active-popup {
+    /* overflow: visible;  */
+    transform: scale(1);
+}
+
+.wrapper.active {
+    height: 520px;
 }
 
 .wrapper .form-box {
@@ -108,13 +119,26 @@ body{
 }
 
 .wrapper .form-box.login {
-    display: none;
+    transition: transform .18s ease;
+    transform: translateX(0);
 
+}
+
+.wrapper.active .form-box.login {
+    transition: none;
+    transform: translateX(-400px);
 }
 
 .wrapper .form-box.register{
     position: absolute;
+    transition: none;
     transform: translateX(400px);
+}
+
+
+.wrapper.active .form-box.register {
+    transition: transform .18s ease;
+    transform: translateX(0);
 }
 
 .wrapper .icon-close {
